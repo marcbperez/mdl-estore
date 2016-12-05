@@ -1,0 +1,100 @@
+/* Header */
+
+.mdl-layout__header-row {
+  padding-left: 40px;
+}
+
+.mdl-layout-title {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.search {
+  width: 150px;
+  margin-right: 35px;
+}
+
+/* General elements */
+
+h2.section-title {
+  text-align: center;
+  color: gray;
+}
+
+/* Banner and product card */
+
+.mdl-card {
+  height: 350px;
+  width: 100%;
+}
+
+.mdl-card__title {
+  color: #fff;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.mdl-card__title.banner {
+  background-image: url('assets/banner-1.jpg');
+}
+
+.mdl-card__title.banner h1 {
+  margin: auto;
+  text-align: center;
+}
+
+.mdl-card__title-text,
+.mdl-card__title.banner h1 {
+  background-color: rgba(0, 0, 0, .5);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Brand logo */
+
+.brand-logo {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.brand-logo img {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  left: 50%;
+  margin-left: -50px;
+  opacity: .2;
+}
+
+.brand-logo img:hover {
+  opacity: .4;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 50px;
+}
+
+.mdl-mega-footer__heading.brand {
+  font-size: 22px;
+  position: relative;
+  top: 25px;
+}
+
+.payment-image {
+  width: 50px;
+  opacity: .4;
+  position: relative;
+  top: 15px;
+}
+
+.newsletter {
+  width: 80%;
+}
+
+.newsletter .mdl-textfield__input,
+.newsletter .mdl-textfield__label {
+  color: white;
+  border-color: whitesmoke;
+}
