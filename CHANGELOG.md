@@ -3,14 +3,14 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
-## Unreleased
+## 0.3.0 - 2016-12-05
 
 ### Added
 
   - Assets for the home page.
   - HTML, script and stylesheet for the home page.
 
-## Updated
+### Updated
 
   - Project description.
 
