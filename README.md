@@ -1,6 +1,6 @@
 # mdl-estore
 
-Generic eStore template made with Material Design Lite.
+Generic eStore template made with Material Design Lite and AngularJS.
 
 ## Installation
 
