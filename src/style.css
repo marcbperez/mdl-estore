@@ -14,13 +14,6 @@
   margin-right: 35px;
 }
 
-/* General elements */
-
-h2.section-title {
-  text-align: center;
-  color: gray;
-}
-
 /* Banner and product card */
 
 .mdl-card {
@@ -61,8 +54,8 @@ h2.section-title {
   position: relative;
   width: 75px;
   height: 75px;
+  margin-left: -37.5px;
   left: 50%;
-  margin-left: -50px;
   opacity: .2;
 }
 
@@ -97,4 +90,14 @@ footer {
 .newsletter .mdl-textfield__label {
   color: white;
   border-color: whitesmoke;
+}
+
+/* List control */
+
+.list-control-page-settings {
+  text-align: center;
+}
+
+.list-control-page-navigation {
+  text-align: right;
 }
