@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" ng-app="eStore" ng-controller="homeController as home">
+<html lang="en" ng-app="eStore" ng-controller="listController as list">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="eStore Brand home">
-    <meta name="keywords" content="eStore Brand home">
+    <meta name="description" content="eStore Brand list">
+    <meta name="keywords" content="eStore Brand list">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>eStore Brand | Home</title>
+    <title>eStore Brand | List</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -30,7 +30,7 @@
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation mdl-cell--hide-desktop">
             <a class="mdl-navigation__link" href="">Menu</a>
-            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ home.cart }}">Cart</span></a>
+            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ list.cart }}">Cart</span></a>
           </nav>
           <nav class="mdl-navigation mdl-cell--hide-tablet mdl-cell--hide-phone">
             <a class="mdl-navigation__link" href="">Home</a>
@@ -38,7 +38,7 @@
             <a class="mdl-navigation__link" href="">Electronics</a>
             <a class="mdl-navigation__link" href="">Digital</a>
             <a class="mdl-navigation__link" href="">Custom</a>
-            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ home.cart }}">Cart</span></a>
+            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ list.cart }}">Cart</span></a>
           </nav>
           <div class="mdl-layout-spacer"></div>
           <div class="search mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -58,7 +58,7 @@
       </header>
       <div class="mdl-layout__drawer">
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ home.cart }}">Cart</span></a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ list.cart }}">Cart</span></a>
           <a class="mdl-navigation__link" href="">Home</a>
           <a class="mdl-navigation__link" href="">Fashion</a>
           <a class="mdl-navigation__link" href="">Electronics</a>
@@ -72,93 +72,105 @@
       <main class="mdl-layout__content">
         <!-- Main content -->
         <div class="page-content">
-          <!-- Main section banner -->
+          <!-- Main section grid -->
           <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col">
-              <div class="mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand banner">
-                  <h1>Featured Products Banner</h1>
+            <!-- Left secondary column -->
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+              <ul class="mdl-list">
+                <li class="mdl-list__item" ng-repeat="menuItem in list.menu">
+                  <span class="mdl-list__item-primary-content">{{ menuItem }}</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Right primary column -->
+            <div class="mdl-cell mdl-cell--10-col">
+              <!-- Banner -->
+              <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__title mdl-card--expand banner">
+                    <h1>Product List Banner</h1>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- Product list control -->
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--1-col-phone">
-              <button id="menu-sort" class="mdl-button mdl-js-button">Sort by</button>
-              <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">Price low to high</span>
-              <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-sort">
-                <li class="mdl-menu__item">Price low to high</li>
-                <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Price high to low</li>
-                <li class="mdl-menu__item">Name A-Z</li>
-                <li class="mdl-menu__item">Name Z-A</li>
-              </ul>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--3-col-phone list-control-page-navigation">
-              <button id="menu-show-secondary" class="mdl-button mdl-js-button">Show</button>
-              <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">8 per page</span>
-              <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-show-secondary">
-                <li class="mdl-menu__item">8</li>
-                <li class="mdl-menu__item">12</li>
-                <li class="mdl-menu__item">24</li>
-              </ul>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">chevron_left</i>
-              </button>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">chevron_right</i>
-              </button>
-            </div>
-          </div>
-          <!-- Product list -->
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone" ng-repeat="product in home.products">
-              <div class="mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand" style="background-image: url({{ product }})">
-                  <h2 class="mdl-card__title-text">Product Lorem Ipsum<br/>50.00 &euro;</h2>
+              <!-- Product list control -->
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--1-col-phone">
+                  <button id="menu-sort" class="mdl-button mdl-js-button">Sort by</button>
+                  <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">Price low to high</span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-sort">
+                    <li class="mdl-menu__item">Price low to high</li>
+                    <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Price high to low</li>
+                    <li class="mdl-menu__item">Name A-Z</li>
+                    <li class="mdl-menu__item">Name Z-A</li>
+                  </ul>
                 </div>
-                <div class="mdl-card__supporting-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="home.addToCart()">
-                    Add to Cart
-                  </a>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--3-col-phone list-control-page-navigation">
+                  <button id="menu-show-secondary" class="mdl-button mdl-js-button">Show</button>
+                  <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">8 per page</span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-show-secondary">
+                    <li class="mdl-menu__item">8</li>
+                    <li class="mdl-menu__item">12</li>
+                    <li class="mdl-menu__item">24</li>
+                  </ul>
+                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">chevron_left</i>
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">chevron_right</i>
+                  </button>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- Product list control -->
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--1-col-phone">
-              <button id="menu-sort" class="mdl-button mdl-js-button">Sort by</button>
-              <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">Price low to high</span>
-              <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-sort">
-                <li class="mdl-menu__item">Price low to high</li>
-                <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Price high to low</li>
-                <li class="mdl-menu__item">Name A-Z</li>
-                <li class="mdl-menu__item">Name Z-A</li>
-              </ul>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--3-col-phone list-control-page-navigation">
-              <button id="menu-show-secondary" class="mdl-button mdl-js-button">Show</button>
-              <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">8 per page</span>
-              <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-show-secondary">
-                <li class="mdl-menu__item">8</li>
-                <li class="mdl-menu__item">12</li>
-                <li class="mdl-menu__item">24</li>
-              </ul>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">chevron_left</i>
-              </button>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">chevron_right</i>
-              </button>
+              <!-- Product list -->
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone" ng-repeat="product in list.products">
+                  <div class="mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand" style="background-image: url({{ product }})">
+                      <h2 class="mdl-card__title-text">Product Lorem Ipsum<br/>50.00 &euro;</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="list.addToCart()">
+                        Add to Cart
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product list control -->
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--1-col-phone">
+                  <button id="menu-sort" class="mdl-button mdl-js-button">Sort by</button>
+                  <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">Price low to high</span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-sort">
+                    <li class="mdl-menu__item">Price low to high</li>
+                    <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Price high to low</li>
+                    <li class="mdl-menu__item">Name A-Z</li>
+                    <li class="mdl-menu__item">Name Z-A</li>
+                  </ul>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--3-col-phone list-control-page-navigation">
+                  <button id="menu-show-secondary" class="mdl-button mdl-js-button">Show</button>
+                  <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">8 per page</span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-show-secondary">
+                    <li class="mdl-menu__item">8</li>
+                    <li class="mdl-menu__item">12</li>
+                    <li class="mdl-menu__item">24</li>
+                  </ul>
+                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">chevron_left</i>
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">chevron_right</i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Product brands -->
           <div class="mdl-grid">
-            <div class="brand-logo mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone" ng-repeat="brand in home.brands">
+            <div class="brand-logo mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone" ng-repeat="brand in list.brands">
               <img ng-src="{{ brand }}" alt="" id="brand-{{ $index }}">
               <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="brand-{{ $index }}">
                 brand-{{ $index }}
