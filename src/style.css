@@ -1,7 +1,16 @@
+/* Layout */
+
+.page-content > .mdl-grid,
+.mdl-mega-footer > .mdl-grid,
+.mdl-layout__header-row {
+  max-width: 1200px;
+}
+
 /* Header */
 
 .mdl-layout__header-row {
   padding-left: 40px;
+  margin: auto;
 }
 
 .mdl-layout-title {
@@ -46,8 +55,9 @@
 /* Brand logo */
 
 .brand-logo {
-  margin-top: 60px;
-  margin-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .brand-logo img {
@@ -65,7 +75,7 @@
 
 /* Footer */
 
-footer {
+.mdl-mega-footer {
   margin-top: 50px;
 }
 
@@ -100,4 +110,56 @@ footer {
 
 .list-control-page-navigation {
   text-align: right;
+}
+
+/* Item content */
+
+.product-banner {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.product-features li p {
+  margin-bottom: 5px;
+}
+
+.product-thumb {
+  text-align: center;
+}
+
+.product-thumb button {
+  position: relative;
+  top: 50%;
+  margin-top: -20px;
+}
+
+.product-thumb img {
+  width: 100%;
+}
+
+/* Item options */
+
+.product-options {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.product-option:first-child {
+  margin-left: 0px;
+}
+
+.product-option:last-child {
+  margin-right: 0px;
+}
+
+.product-option .mdl-textfield {
+  padding-top: 0px;
+}
+
+.product-option .mdl-textfield .mdl-textfield__label {
+  top: 0px;
+}
+
+.product-option .mdl-button {
+  margin-right: 20px;
 }
