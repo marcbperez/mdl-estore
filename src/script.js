@@ -56,3 +56,10 @@ eStore.controller('listController', function() {
     'Socks and Tights',
   ];
 });
+
+eStore.controller('itemController', function() {
+  this.cart = cart;
+  this.addToCart = addToCart;
+  this.products = products;
+  this.brands = brands;
+});
