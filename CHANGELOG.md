@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
+## 0.6.0 - 2016-12-08
+
+### Added
+
+  - HTML, script and stylesheet for the cart page.
+
 ## 0.5.0 - 2016-12-07
 
 ### Added
