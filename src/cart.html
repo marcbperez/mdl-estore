@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" ng-app="eStore" ng-controller="itemController as item">
+<html lang="en" ng-app="eStore" ng-controller="cartController as cart">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="eStore Brand item">
-    <meta name="keywords" content="eStore Brand item">
+    <meta name="description" content="eStore Brand cart">
+    <meta name="keywords" content="eStore Brand cart">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>eStore Brand | Item</title>
+    <title>eStore Brand | Cart</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -29,7 +29,7 @@
         <div class="mdl-layout__header-row">
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation mdl-cell--hide-desktop">
-            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ item.cart }}">Cart</span></a>
+            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ cart.cart }}">Cart</span></a>
           </nav>
           <nav class="mdl-navigation mdl-cell--hide-tablet mdl-cell--hide-phone">
             <a class="mdl-navigation__link" href="">Home</a>
@@ -37,7 +37,7 @@
             <a class="mdl-navigation__link" href="">Electronics</a>
             <a class="mdl-navigation__link" href="">Digital</a>
             <a class="mdl-navigation__link" href="">Custom</a>
-            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ item.cart }}">Cart</span></a>
+            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ cart.cart }}">Cart</span></a>
           </nav>
           <div class="mdl-layout-spacer"></div>
           <div class="search mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -57,7 +57,7 @@
       </header>
       <div class="mdl-layout__drawer">
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ item.cart }}">Cart</span></a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ cart.cart }}">Cart</span></a>
           <a class="mdl-navigation__link" href="">Home</a>
           <a class="mdl-navigation__link" href="">Fashion</a>
           <a class="mdl-navigation__link" href="">Electronics</a>
@@ -71,108 +71,68 @@
       <main class="mdl-layout__content">
         <!-- Main content -->
         <div class="page-content">
-          <!-- Item detail -->
+          <!-- Mobile cart table -->
           <div class="mdl-grid">
-            <!-- Item pictures -->
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-              <div class="mdl-card mdl-shadow--2dp product-banner">
-                <div class="mdl-card__title mdl-card--expand banner" style="background-image:url({{ item.products[4] }})">
-                  <h2 class="mdl-card__title-text">50.00 &euro;</h2>
-                </div>
-              </div>
-              <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone product-thumb">
-                  <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                    <i class="material-icons">chevron_left</i>
-                  </button>
-                </div>
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone product-thumb">
-                  <img ng-src="{{ item.products[0] }}" alt="" class="mdl-shadow--2dp">
-                </div>
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone product-thumb">
-                  <img ng-src="{{ item.products[1] }}" alt="" class="mdl-shadow--2dp">
-                </div>
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone product-thumb">
-                  <img ng-src="{{ item.products[2] }}" alt="" class="mdl-shadow--2dp">
-                </div>
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone product-thumb">
-                  <img ng-src="{{ item.products[3] }}" alt="" class="mdl-shadow--2dp">
-                </div>
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone product-thumb">
-                  <img ng-src="{{ item.products[5] }}" alt="" class="mdl-shadow--2dp">
-                </div>
-                <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone product-thumb">
-                  <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored product-thumb-nav">
-                    <i class="material-icons">chevron_right</i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- Product information -->
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-              <h2 class="mdl-typography--display-1">Sample Fashion Product</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <ul class="product-features">
-                <li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.</p>
-                </li>
-                <li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.</p>
-                </li>
-              </ul>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id.</p>
-              <div class="mdl-grid product-options">
-                <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--2-col-phone product-option">
-                  <button id="menu-size" class="mdl-button mdl-js-button mdl-button--raised">Size</button>
-                  <span>Medium</span>
-                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-size">
-                    <li class="mdl-menu__item">Small</li>
-                    <li class="mdl-menu__item">Medium</li>
-                    <li class="mdl-menu__item">Large</li>
-                  </ul>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--2-col-phone product-option">
-                  <button id="menu-color" class="mdl-button mdl-js-button mdl-button--raised">Color</button>
-                  <span>White</span>
-                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-color">
-                    <li class="mdl-menu__item">White</li>
-                    <li class="mdl-menu__item">Black</li>
-                    <li class="mdl-menu__item">Red</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="mdl-grid product-options">
-                <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--2-col-phone product-option">
-                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                    Add to Cart
-                  </button>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone product-option">
-                  <p>In stock</p>
-                </div>
-                <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--2-col-phone product-option">
-                  <div class="mdl-textfield mdl-js-textfield">
-                    <label class="mdl-textfield__label" for="sample2">Quantity (1)</label>
-                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
-                    <span class="mdl-textfield__error">Must be a number.</span>
-                  </div>
-                </div>
-              </div>
+            <div class="mdl-cell mdl-cell--12-col">
+              <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mobile-cart-table">
+                <thead>
+                  <tr class="dark-row">
+                    <th class="mdl-data-table__cell--non-numeric">Product</th>
+                    <th class="mdl-data-table__cell--non-numeric">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <img ng-src="{{ cart.products[0] }}" alt="" class="mdl-shadow--2dp product-image">
+                      <br>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <strong>Sample Fashion Product</strong><br>
+                      Color: White<br>
+                      Size: S<br>
+                      <strong>50.00 &euro;</strong>
+                      <div class="mdl-textfield mdl-js-textfield quantity-input">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" value="1">
+                        <span class="mdl-textfield__error">Must be a number.</span>
+                      </div>
+                      <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored delete-product">
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <strong>Tax and Ship</strong>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <strong>50.00 &euro;</strong>
+                      <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored delete-product">
+                        <i class="material-icons">location_on</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="dark-row">
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <strong>Grand Total</strong>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <strong>50.00 &euro;</strong>
+                      <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored delete-product">
+                        <i class="material-icons">payment</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored checkout-button">
+                Checkout
+              </button>
             </div>
           </div>
           <!-- Product list -->
           <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone" ng-repeat="product in item.products">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone" ng-repeat="product in cart.products">
               <div class="mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title mdl-card--expand" style="background-image: url({{ product }})">
                   <h2 class="mdl-card__title-text">Product Lorem Ipsum<br>50.00 &euro;</h2>
@@ -190,7 +150,7 @@
           </div>
           <!-- Product brands -->
           <div class="mdl-grid">
-            <div class="brand-logo mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone" ng-repeat="brand in item.brands">
+            <div class="brand-logo mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone" ng-repeat="brand in cart.brands">
               <img ng-src="{{ brand }}" alt="" id="brand-{{ $index }}">
               <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="brand-{{ $index }}">
                 brand-{{ $index }}
@@ -198,7 +158,7 @@
             </div>
           </div>
         </div>
-        <!-- Footer -->
+        <!--ter -->
         <footer class="mdl-mega-footer">
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
@@ -256,7 +216,7 @@
         </footer>
       </main>
     </div>
-    <!-- Footer scripts -->
+    <!--ter scripts -->
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="script.js"></script>
     <script>
