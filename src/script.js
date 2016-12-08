@@ -63,3 +63,10 @@ eStore.controller('itemController', function() {
   this.products = products;
   this.brands = brands;
 });
+
+eStore.controller('cartController', function() {
+  this.cart = cart;
+  this.addToCart = addToCart;
+  this.products = products;
+  this.brands = brands;
+});

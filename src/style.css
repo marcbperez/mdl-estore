@@ -163,3 +163,37 @@
 .product-option .mdl-button {
   margin-right: 20px;
 }
+
+/* Cart */
+
+.product-image {
+  width: 90px;
+}
+
+.mobile-cart-table {
+  width: 100%;
+  white-space: normal;
+}
+
+.mobile-cart-table .quantity-input,
+.mobile-cart-table .quantity-input input {
+  width: 20px;
+  text-align: center;
+  margin-left: 5px;
+  padding-bottom: 0;
+}
+
+.mobile-cart-table .delete-product {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.mobile-cart-table .dark-row {
+  background-color: #eee;
+}
+
+.checkout-button {
+  width: 100%;
+  margin-top: 30px;
+}
