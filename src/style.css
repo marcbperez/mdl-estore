@@ -197,3 +197,20 @@
   width: 100%;
   margin-top: 30px;
 }
+
+/* Checkout */
+
+.checkout-table {
+  min-width: 100%;
+  margin-bottom: 20px;
+  border: 0px;
+}
+
+.checkout-input,
+.checkout-input input {
+  width: 100%;
+}
+
+.ship-and-bill {
+  margin-top: 20px;
+}

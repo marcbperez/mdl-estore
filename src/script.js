@@ -70,3 +70,8 @@ eStore.controller('cartController', function() {
   this.products = products;
   this.brands = brands;
 });
+
+eStore.controller('checkoutController', function() {
+  this.cart = cart;
+  this.addToCart = addToCart;
+});

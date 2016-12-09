@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en" ng-app="eStore" ng-controller="checkoutController as checkout">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="eStore Brand checkout">
+    <meta name="keywords" content="eStore Brand checkout">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>eStore Brand | Checkout</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Head scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- Main stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Layout container -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <!-- Header -->
+      <header class="mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">eStore Brand</span>
+        </div>
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-cell--hide-desktop">
+            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ checkout.cart }}">Cart</span></a>
+          </nav>
+          <nav class="mdl-navigation mdl-cell--hide-tablet mdl-cell--hide-phone">
+            <a class="mdl-navigation__link" href="">Home</a>
+            <a class="mdl-navigation__link" href="">Fashion</a>
+            <a class="mdl-navigation__link" href="">Electronics</a>
+            <a class="mdl-navigation__link" href="">Digital</a>
+            <a class="mdl-navigation__link" href="">Custom</a>
+            <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ checkout.cart }}">Cart</span></a>
+          </nav>
+          <div class="mdl-layout-spacer"></div>
+          <div class="search mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" name="sample" id="waterfall-exp">
+            </div>
+          </div>
+          <nav class="mdl-navigation mdl-cell--hide-phone">
+            <a class="mdl-navigation__link" href=""><small>EUR</small></a>
+            <a class="mdl-navigation__link" href=""><small>English</small></a>
+          </nav>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href=""><span class="mdl-badge" data-badge="{{ checkout.cart }}">Cart</span></a>
+          <a class="mdl-navigation__link" href="">Home</a>
+          <a class="mdl-navigation__link" href="">Fashion</a>
+          <a class="mdl-navigation__link" href="">Electronics</a>
+          <a class="mdl-navigation__link" href="">Digital</a>
+          <a class="mdl-navigation__link" href="">Custom</a>
+          <a class="mdl-navigation__link" href=""><small>Currency - EUR</small></a>
+          <a class="mdl-navigation__link" href=""><small>Language - English</small></a>
+        </nav>
+      </div>
+      <!-- Main container -->
+      <main class="mdl-layout__content">
+        <!-- Main content -->
+        <div class="page-content">
+          <form class="mdl-grid">
+            <div class="mdl-cell mdl-cell--5-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
+              <h2 class="mdl-typography--headline">Order Summary</h2>
+              <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp checkout-table">
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                        <span class="mdl-radio__label">Visa</span>
+                      </label>
+                    </td>
+                    <td>Free</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="1" checked>
+                        <span class="mdl-radio__label">PayPal</span>
+                      </label>
+                    </td>
+                    <td>Add 0.50 €</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                        <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="1" checked>
+                        <span class="mdl-radio__label">Mastercard</span>
+                      </label>
+                    </td>
+                    <td>Add 1.00 €</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp checkout-table">
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                        <input type="radio" id="option-4" class="mdl-radio__button" name="options2" value="1" checked>
+                        <span class="mdl-radio__label">Regular Shipping</span>
+                      </label>
+                    </td>
+                    <td>Free</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+                        <input type="radio" id="option-5" class="mdl-radio__button" name="options2" value="1" checked>
+                        <span class="mdl-radio__label">Quick Shipping</span>
+                      </label>
+                    </td>
+                    <td>Add 10.00 €</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
+                        <input type="radio" id="option-6" class="mdl-radio__button" name="options2" value="1" checked>
+                        <span class="mdl-radio__label">Instant Shipping</span>
+                      </label>
+                    </td>
+                    <td>Add 25.00 €</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp checkout-table">
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      Cart Total
+                    </td>
+                    <td>50.00 €</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      Shipping Cost
+                    </td>
+                    <td>Free</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      Payment Cost
+                    </td>
+                    <td>1.00 €</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <strong>Grand Total</strong>
+                    </td>
+                    <td>
+                      <strong>51.00 €</strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mdl-cell mdl-cell--7-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
+              <h2 class="mdl-typography--headline">Card Details</h2>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Card No.</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Expires (YYYY/MM/DD)</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">CVV</label>
+              </div>
+              <h2 class="mdl-typography--headline">Shipping Address</h2>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">First Name</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Company</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Address</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">City</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Zip/Postal Code</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Surname</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Email Address</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Telephone</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">State/Province</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label checkout-input">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Country</label>
+              </div>
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ship-and-bill" for="checkbox-1">
+                <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label">Ship and bill to the same address</span>
+              </label>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored checkout-button">
+                Pay Order
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Footer -->
+        <footer class="mdl-mega-footer">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+              <h1 class="mdl-mega-footer__heading">Sections</h1>
+              <ul class="mdl-mega-footer__link-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Digital</a></li>
+                <li><a href="#">Custom</a></li>
+              </ul>
+              <h1 class="mdl-mega-footer__heading brand">eStore Brand</h1>
+            </div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+              <h1 class="mdl-mega-footer__heading">FAQ</h1>
+              <ul class="mdl-mega-footer__link-list">
+                <li><a href="#">Track your order</a></li>
+                <li><a href="#">Delivery and returns</a></li>
+                <li><a href="#">Gift cards</a></li>
+                <li><a href="#">Terms and conditions</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+              <img src="assets/visa.png" alt="" class="payment-image">
+              <img src="assets/mastercard.png" alt="" class="payment-image">
+              <img src="assets/paypal.png" alt="" class="payment-image">
+            </div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+              <h1 class="mdl-mega-footer__heading">Social</h1>
+              <ul class="mdl-mega-footer__link-list">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">LinkedIn</a></li>
+              </ul>
+              <form action="#">
+                <div class="newsletter mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="sample3">
+                  <label class="mdl-textfield__label" for="sample3">Join our newsletter</label>
+                </div>
+              </form>
+            </div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+              <h1 class="mdl-mega-footer__heading">About Us</h1>
+              <p>
+                estore@brand.com<br>
+                +44 (0) 8654892256<br>
+                122 Foster St.<br>
+                N226PX London<br>
+                Planet Earth
+              </p>
+              <p>Copyright 2017 eStore Brand<br>All rights reserved</p>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <!-- Footer scripts -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-XXXXXXXX-X', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
