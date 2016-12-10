@@ -36,6 +36,14 @@ var brands = [
   'assets/brand-12.png',
 ];
 
+var menu = [
+  'Sunglasses',
+  'Shirts and Tops',
+  'Designer Tops',
+  'Blouses',
+  'Socks and Tights',
+];
+
 eStore.controller('homeController', function() {
   this.cart = cart;
   this.addToCart = addToCart;
@@ -48,13 +56,7 @@ eStore.controller('listController', function() {
   this.addToCart = addToCart;
   this.products = products;
   this.brands = brands;
-  this.menu = [
-    'Sunglasses',
-    'Shirts and Tops',
-    'Designer Tops',
-    'Blouses',
-    'Socks and Tights',
-  ];
+  this.menu = menu;
 });
 
 eStore.controller('itemController', function() {
@@ -74,4 +76,11 @@ eStore.controller('cartController', function() {
 eStore.controller('checkoutController', function() {
   this.cart = cart;
   this.addToCart = addToCart;
+});
+
+eStore.controller('articleController', function() {
+  this.cart = cart;
+  this.addToCart = addToCart;
+  this.brands = brands;
+  this.menu = menu;
 });
